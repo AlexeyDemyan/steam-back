@@ -9,4 +9,6 @@ class Appid extends Model
     protected $fillable = [
         'appid'
     ];
+
+    public $incrementing = false;
 }

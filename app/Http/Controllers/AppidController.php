@@ -8,9 +8,18 @@ use App\Models\Appid;
 
 class AppidController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $appids = DB::select("SELECT * FROM appids");
         return response()->json($appids);
+    }
+
+    public function store(Request $request)
+    {
+        Appid::create([
+            'appid' => $request->appid
+        ]);
+
+        return response()->json('Appid Created!');
     }
 }
