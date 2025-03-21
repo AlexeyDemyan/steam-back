@@ -16,10 +16,12 @@ class AppidController extends Controller
 
     public function store(Request $request)
     {
-        Appid::create([
+        $result = Appid::firstOrCreate([
             'appid' => $request->appid
         ]);
 
-        return response()->json('Appid Created!');
+        return $result;
+
+        // return response()->json('Appid Created!');
     }
 }
